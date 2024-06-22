@@ -1,6 +1,6 @@
 <?php
-
 include_once('DB.php');
+
 class Comments
 {
     private DB $db;

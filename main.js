@@ -1,4 +1,5 @@
-$(document).ready(function() {
+
+$(document).ready(function () {
     // Add note with AJAX request
     $('#add-note').click(function(e) {
         e.preventDefault();
