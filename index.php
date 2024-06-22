@@ -3,12 +3,6 @@ require_once('Classes_PHP/Book.php');
 require_once('Classes_PHP/Category.php');
 
 session_start();
-//header("Cache-Control: no-cache, must-revalidate");
-//header("Pragma: no-cache");
-//header("Expires: Sat, 26 Jul 1997 05:00:00 GMT"); // Date in the past
-//disabled cache memory because its causing browser problems
-
-
 
 $bookObj = new Book();
 
@@ -17,7 +11,7 @@ $books = $bookObj->getAllBooks();
 $categoryObj = new Category();
 $categories = $categoryObj->getCategoriesInfo();
 
-// var_dump($books);
+
 ?>
 
 <!doctype html>
@@ -38,7 +32,6 @@ $categories = $categoryObj->getCategoriesInfo();
 <body>
     <header>
         <?php
-        //      session_start();
 
         if (isset($_SESSION['loggedUser'])) {
             echo '<script>';
@@ -203,6 +196,9 @@ $categories = $categoryObj->getCategoriesInfo();
             <?php endforeach; ?>
         </div>
     </main>
+    <footer>
+        <blockquote id="quote" class="text-center py-4 mb-0 randomQuote"></blockquote>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>

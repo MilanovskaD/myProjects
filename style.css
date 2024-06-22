@@ -133,7 +133,6 @@ nav a, .navbar-toggler-icon{
     padding: 10px;
     border: 1px solid #f4fdff;
     margin: 5px;
-    /* display: inline-block; */
     border-radius: 5px;
     transition: background-color 0.3s ease;
 }
@@ -152,6 +151,10 @@ input[type="checkbox"]:checked + .labels {
 
 .bg-blue{
     background-color: #44dee3; 
+}
+
+#quote{
+    background-color: #968e85;
 }
 
 @media only screen and (max-width: 768px) {

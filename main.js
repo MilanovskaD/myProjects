@@ -1,3 +1,12 @@
+fetch('https://api.quotable.io/random')
+    .then(response => response.json())
+    .then(data => {
+        const randomQuote = document.getElementById('quote');
+        randomQuote.innerHTML = `${data.content} ${data.author}`;
+    })
+    .catch(error => console.error('Error fetching quote:', error));
+
+
 //opening window/modals for signup and login forms
 
  let signupModal = document.getElementById("signupModal");
@@ -75,3 +84,14 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+//random quote API
+
+fetch('https://api.quotable.io/random')
+    .then(response => response.json())
+    .then(data => {
+        const randomQuote = document.getElementById('quote');
+        //   const  randomQuote = document.querySelectorAll('.randomQuote');
+        randomQuote.innerHTML = `${data.content} ${data.author}`;
+    })
+    .catch(error => console.error('Error fetching quote:', error));
