@@ -68,13 +68,13 @@ $categories = $categoryObj->getCategoriesInfo();
                         if (isset($_SESSION['userUsername'])) {
                             echo '<li class="nav-item pt-3 px-3">' . '<i class="fa-solid fa-circle-user fa-lg"></i> ' . $_SESSION['userUsername'] . '</li>';
                             echo '<li class="nav-item">';
-                            echo '<a class="nav-link active btn btn-primary mt-2" href="logout.php">Log out</a>' . '</li>';
+                            echo '<a class="nav-link active btn btn-blue mt-2" href="logout.php">Log out</a>' . '</li>';
                         } else {
                             echo '<li class="nav-item">';
-                            echo '<a class="nav-link active btn btn-primary me-lg-2 mt-2" href="#signupForm" id="signupBtn">Sign up</a>';
+                            echo '<a class="nav-link active btn btn-blue me-lg-2 mt-2" href="#signupForm" id="signupBtn">Sign up</a>';
                             echo '</li>';
                             echo '<li class="nav-item">';
-                            echo '<a class="nav-link active btn btn-primary mt-2" href="#loginForm" id="loginBtn">Login</a>';
+                            echo '<a class="nav-link active btn btn-blue mt-2" href="#loginForm" id="loginBtn">Login</a>';
                             echo '</li>';
                         }
                         ?>
@@ -119,7 +119,7 @@ $categories = $categoryObj->getCategoriesInfo();
                             }
                             ?>
                             <div class="custom-modal-footer">
-                                <button type="submit" class="btn btn-primary">Sign up</button>
+                                <button type="submit" class="btn btn-blue bg-blue text-white">Sign up</button>
                             </div>
                         </form>
                     </div>
@@ -165,7 +165,7 @@ $categories = $categoryObj->getCategoriesInfo();
                             ?>
 
                             <div class="custom-modal-footer">
-                                <button type="submit" class="btn btn-primary">Login</button>
+                                <button type="submit" class="btn btn-blue bg-blue text-white">Login</button>
                             </div>
                         </form>
                     </div>
@@ -179,6 +179,30 @@ $categories = $categoryObj->getCategoriesInfo();
             </div>
         </div>
     </header>
+
+    <main class="main-index pt-3">
+        <div class="checkbox-wrapper container w-50 mx-auto text-center py-3">
+            <p class="text-center">Select one of the following book categories</p>
+            <?php foreach ($categories as $category) : ?>
+                <input type="checkbox" name="<?= strtolower($category['title']) ?>" id="filter-<?= strtolower($category['title']) ?>" hidden>
+                <label for="filter-<?= strtolower($category['title']) ?>" class="labels text-white"><?= $category['title'] ?></label>
+            <?php endforeach; ?>
+        </div>
+
+        <div class="cards-container d-flex flex-wrap gap-4 justify-content-center mt-5 pb-5">
+            <?php foreach ($books as $book) : ?>
+                <div class="card <?= htmlspecialchars($book['title']) ?> zoom" style="width: 18rem;">
+                    <img src="<?= htmlspecialchars($book['img_url']) ?>" class="card-img-top" alt="book">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= htmlspecialchars($book['book_title']) ?></h5>
+                        <p class="card-text">By: <?= $book['full_name'] ?></p>
+                        <p class="card-text">Genre: <?= $book['title'] ?></p>
+                        <a href="./books-dashboard.php?id=<?= htmlspecialchars($book['id']) ?>" class="btn btn-blue text-white">View book details</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </main>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>

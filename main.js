@@ -51,3 +51,27 @@ function showPassword() {
         }
     });
 }
+
+//books/cards filtering
+
+document.addEventListener('DOMContentLoaded', () => {
+    const checkboxes = document.querySelectorAll('.checkbox-wrapper input[type="checkbox"]');
+    const cards = document.querySelectorAll('.cards-container .card');
+
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            const checkedCategories = Array.from(checkboxes)
+                .filter(cb => cb.checked)
+                .map(cb => cb.name.toLowerCase());
+
+            cards.forEach(card => {
+                const cardCategory = card.classList[1].toLowerCase();
+                if (checkedCategories.length === 0 || checkedCategories.includes(cardCategory)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
