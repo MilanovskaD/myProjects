@@ -1,6 +1,6 @@
 <?php
-include_once('DB.php');
 
+include_once('DB.php');
 class Comments
 {
     private DB $db;
@@ -46,7 +46,7 @@ class Comments
     public function getApprovedComments()
     {
         $connection = $this->db->getConnection();
-        $query = 'SELECT * FROM comments WHERE is_approved = 1';
+        $query = 'SELECT * FROM comments WHERE is_approved = 1 AND is_deleted = 0';
         $stmt = $connection->prepare($query);
         $stmt->execute();
 
@@ -56,7 +56,7 @@ class Comments
     public function getApprovedCommentsByBookId($book_id)
     {
         $connection = $this->db->getConnection();
-        $query = 'SELECT comments.*, users.username FROM comments JOIN users ON comments.user_id = users.id WHERE book_id = :book_id AND is_approved = 0 ORDER BY comments.id DESC';
+        $query = 'SELECT comments.*, users.username FROM comments JOIN users ON comments.user_id = users.id WHERE book_id = :book_id AND is_approved = 1 AND is_deleted = 0 ORDER BY comments.id DESC';
         $stmt = $connection->prepare($query);
         $stmt->bindParam(':book_id', $book_id);
         $stmt->execute();
@@ -82,6 +82,7 @@ class Comments
         $stmt->bindParam(':comment_id', $comment_id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
     public function updateComment($comment_id, $content): bool
     {
         $connection = $this->db->getConnection();
@@ -100,6 +101,7 @@ class Comments
         $stmt->bindParam(':comment_id', $comment_id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
     public function declineComment($comment_id): bool
     {
         $connection = $this->db->getConnection();

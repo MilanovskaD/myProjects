@@ -6,7 +6,7 @@ require_once('Classes_PHP/Category.php');
 $bookObj = new Book();
 $books = $bookObj->getAllBooks();
 
-// var_dump($books);
+
 
 $categoryObj = new Category();
 $categories = $categoryObj->getCategoriesInfo();
@@ -21,7 +21,7 @@ $categories = $categoryObj->getCategoriesInfo();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css">
-  <link rel="shortcut icon" href="./favicon/favicon-32x32.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./favicon/favicon2-32x32.png" type="image/x-icon">
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
   <script src="https://kit.fontawesome.com/3c18f363e4.js" crossorigin="anonymous"></script>

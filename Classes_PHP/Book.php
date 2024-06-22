@@ -1,6 +1,6 @@
 <?php
 
-include_once('DB.php');
+require_once('DB.php');
 
 
 class Book
@@ -47,7 +47,6 @@ class Book
         $stmt->bindParam(':pages_num', $_POST['pages_num']);
         $stmt->bindParam(':img_url', $_POST['img_url']);
         $stmt->execute();
-
     }
 
     public function deleteBook($id)
@@ -84,7 +83,5 @@ class Book
         $stmt->bindParam(':pages_num', $_POST['pages_num']);
         $stmt->bindParam(':img_url', $_POST['img_url']);
         $stmt->execute();
-
-
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-include_once('DB.php');
+require_once('DB.php');
 
 
 class Author
@@ -20,7 +20,6 @@ class Author
         $stmt = $connection->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
-
     }
 
     public function addAuthor()
@@ -33,7 +32,6 @@ class Author
         $stmt->bindParam(':short_bio', $_POST['short_bio']);
 
         $stmt->execute();
-
     }
 
     public function deleteAuthor($id)
@@ -64,7 +62,5 @@ class Author
         $stmt->bindParam(':short_bio', $_POST['short_bio']);
 
         $stmt->execute();
-
     }
-
 }
