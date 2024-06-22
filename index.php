@@ -33,6 +33,7 @@ $categories = $categoryObj->getCategoriesInfo();
     <header>
         <?php
 
+
         if (isset($_SESSION['loggedUser'])) {
             echo '<script>';
             echo 'Swal.fire({';

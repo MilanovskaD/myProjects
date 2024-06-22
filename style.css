@@ -121,6 +121,7 @@ nav a, .navbar-toggler-icon{
 }
 
 .zoom:hover {
+
   transform: scale(1.1); 
 }
 
@@ -133,8 +134,67 @@ nav a, .navbar-toggler-icon{
     padding: 10px;
     border: 1px solid #f4fdff;
     margin: 5px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+}
+
+    .height-100{
+    min-height: 705px ;
+}
+
+.book-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 1000px;
+}
+
+.book {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: rotateY(0deg);
+    transition: transform 1s ease;
+    cursor: pointer;
+}
+
+.book > img {
+    width: 100%;
+    height: 100%;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    box-shadow: 5px 5px 20px #666;
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+.book::before {
+    content: '';
+    position: absolute;
+    background: #fff;
+    height: calc(100% - 6px);
+    width: 50px;
+    top: 3px;
+    left: 0;
+    transform-origin: left;
+    transform: rotateY(-90deg);
+    backface-visibility: hidden;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+}
+
+.book::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #01060f;
+    transform: translateZ(-50px);
+    box-shadow: -10px 0 50px 10px #666;
+    backface-visibility: hidden;
+}
+
+.book:hover {
+    animation: bookOpen 1s forwards;
 }
 
 .labels:hover{
@@ -157,6 +217,33 @@ input[type="checkbox"]:checked + .labels {
     background-color: #968e85;
 }
 
+
+.notes {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+
+}
+.note {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: #f8f9fa;
+    position: relative;
+}
+.note-buttons {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.height-100{
+    min-height: 705px ;
+}
+
 @media only screen and (max-width: 768px) {
  
   .checkbox-wrapper{
@@ -165,3 +252,8 @@ input[type="checkbox"]:checked + .labels {
   }
 
 }
+
+
+
+
+

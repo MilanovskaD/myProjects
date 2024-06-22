@@ -10,7 +10,7 @@ class Notes
         $this->db = new DB();
     }
 
-        public function addNotes($note_content, $book_id, $user_id): bool
+    public function addNotes($note_content, $book_id, $user_id): bool
     {
         $connection = $this->db->getConnection();
         $query = 'INSERT INTO notes (note_content, user_id ,book_id) VALUES (:note_content, :user_id,:book_id)';
@@ -22,9 +22,10 @@ class Notes
         return $stmt->execute();
     }
 
-    public function getNotes($user_id, $book_id) {
+    public function getNotes($user_id, $book_id)
+    {
         $connection = $this->db->getConnection();
-        $query = 'SELECT * FROM notes WHERE user_id = :user_id AND book_id = :book_id';
+        $query = 'SELECT * FROM notes WHERE user_id = :user_id AND book_id = :book_id AND is_deleted = 0';
         $stmt = $connection->prepare($query);
         $stmt->bindParam(':user_id', $user_id);
         $stmt->bindParam(':book_id', $book_id);
@@ -35,7 +36,7 @@ class Notes
     public function deleteNote($note_id): bool
     {
         $connection = $this->db->getConnection();
-        $query = 'DELETE FROM notes WHERE id = :note_id';
+        $query = 'UPDATE notes SET is_deleted = 1 WHERE id = :note_id';
         $stmt = $connection->prepare($query);
         $stmt->bindParam(':note_id', $note_id, PDO::PARAM_INT);
         return $stmt->execute();
