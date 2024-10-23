@@ -22,7 +22,7 @@ class EventFactory extends Factory
             'theme' => $this->faker->word(),
             'description' => $this->faker->paragraph(),
             'objective' => $this->faker->paragraph(),
-            'date' => $this->faker->date(),
+            'date' => $this->faker->dateTimeBetween('-1 year', '+1 year')->format('Y-m-d'),
             'location' => $this->faker->city(),
             'speaker_id' => Speaker::factory(),
         ];

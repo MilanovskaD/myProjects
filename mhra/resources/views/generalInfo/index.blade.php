@@ -7,11 +7,13 @@
                     <h3 class="text-lg font-medium">Hero Image</h3>
                     <div class="border rounded-lg p-4 mb-4">
                         @if ($generalInfo->hero_image_path)
-                            <img src="{{ Storage::url($generalInfo->hero_image_path) }}" alt="Hero Image"
-                                 class="w-full h-auto">
+                            <img src="{{ Storage::url($generalInfo->hero_image_path) }}" alt="Hero Image" class="w-full h-auto">
+
                         @else
                             <p>No Hero Image Uploaded</p>
                         @endif
+{{--                            {{ dd(Storage::url($generalInfo->hero_image_path)) }}--}}
+
                     </div>
 
                     <h3 class="text-lg font-medium">Social Media Links</h3>

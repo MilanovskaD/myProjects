@@ -270,7 +270,7 @@
                             class="bg-gray-300 hover:bg-gray-400 text-gray-800 px-6 py-2 rounded-md">
                         Next &gt;
                     </button>
-                    <button @click="goToToday()" class="ml-4 bg-indigo-600 text-white px-6 py-2 rounded-md">
+                    <button @click="goToToday()" class="ml-4 bg-orange-600 text-white px-6 py-2 rounded-md">
                         Today
                     </button>
                 </div>
@@ -294,9 +294,9 @@
 
                     <template x-for="day in daysInMonth">
                         <div :class="{
-                            'bg-blue-800 text-white': isToday(day),
-                            'bg-indigo-200': hasEvent(day),
-                            'bg-gray-100 hover:bg-indigo-500 hover:text-white': !isToday(day) && !hasEvent(day)
+                            'bg-orange-500 text-white': isToday(day),
+                            'bg-orange-300': hasEvent(day),
+                            'bg-gray-100 hover:bg-orange-500 hover:text-white': !isToday(day) && !hasEvent(day)
                         }"
                              class="h-24 min-h-[6rem] p-4 border rounded-lg cursor-pointer transition">
                             <div class="text-lg font-bold" x-text="day"></div>
@@ -308,6 +308,7 @@
         </div>
 
         <script>
+            //Dropdown
             document.addEventListener("DOMContentLoaded", function () {
                 const dropdownOptions = document.querySelectorAll(".dropdown-option");
 
@@ -319,7 +320,7 @@
                 });
             });
 
-            //calendar
+            //Calendar
             function calendar() {
                 return {
                     month: new Date().getMonth(),

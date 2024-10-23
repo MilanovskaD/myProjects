@@ -21,7 +21,7 @@ class AnnualConferenceFactory extends Factory
             'title' => $this->faker->sentence(4),
             'theme' => $this->faker->word(),
             'description' => $this->faker->paragraph(),
-            'date' => $this->faker->date(),
+            'date' => $this->faker->dateTimeBetween('-1 year', '+1 year')->format('Y-m-d'),
             'location' => $this->faker->city(),
             'objective' => $this->faker->sentence(),
             'status' => $this->faker->randomElement(['Upcoming', 'Ongoing', 'Completed']),

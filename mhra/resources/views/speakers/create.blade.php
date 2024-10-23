@@ -62,9 +62,9 @@
                                placeholder="https://linkedin.com/in/username"
                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
 
-                        <label for="github" class="block mt-4 mb-2 text-sm font-medium text-gray-900">GitHub</label>
-                        <input type="text" name="social_media[github]" id="github"
-                               placeholder="https://github.com/username"
+                        <label for="facebook" class="block mt-4 mb-2 text-sm font-medium text-gray-900">Facebook</label>
+                        <input type="text" name="social_media[facebook]" id="facebook"
+                               placeholder="https://facobook.com/username"
                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5">
                     </div>
                 </div>

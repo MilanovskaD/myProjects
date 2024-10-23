@@ -1,5 +1,5 @@
 <x-app-layout>
-    <div class="container mx-auto mt-20">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-20 lg:max-w-screen-lg">
         @if (session('success'))
             <div class="p-4 mb-4 text-sm text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
                 <span class="font-medium"></span> {{ session('success') }}
@@ -53,7 +53,7 @@
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="text-red-600 dark:text-red-500 hover:underline">
-                                   Delete
+                                    Delete
                                 </button>
                             </form>
                         </td>
