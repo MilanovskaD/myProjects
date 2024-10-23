@@ -1,0 +1,61 @@
+Welcome to the Laravel Project for MHRA!
+Follow these steps to set up the project on your local environment:
+
+1. Clone the Repository
+If you haven't already, clone the repository using:
+
+git clone https://git.brainster.co/Despina.Milanovska-FS15/brainsterprojects_despina-milanovskafs15.git .
+cd mhra
+
+2. Install Composer Dependencies
+Make sure you have Composer installed. Run the following command to install the PHP dependencies:
+
+composer install
+
+3. Install NPM Packages
+Ensure you have Node.js and npm installed. Then, install the dependencies:
+
+npm install
+
+4. Copy the Environment File
+Create a copy of the .env.example file to .env:
+
+cp .env.example .env
+
+5. Generate Application Key
+Generate a unique application key for your Laravel project:
+
+php artisan key:generate
+
+6. Run Migrations and Seeders
+Run the project migrations and seeders in one command:
+
+php artisan migrate --seed
+
+7. Create a Storage Link
+To make the storage folder accessible from the web, create a symbolic link:
+
+php artisan storage:link
+
+NOTE: If the storage link fails or bugs occur, remove the link and generate it again:
+
+# Remove the existing symbolic link
+rm public/storage
+
+# Recreate the symbolic link
+php artisan storage:link
+
+8. Start the Development Server
+Start the Laravel development server using:
+
+php artisan serve
+
+9. Start Vite Environment
+Start the Vite development server to enable working with CSS and JS assets:
+
+npm run dev
+
+In this Laravel project, I've utilized Laravel Breeze for simple authentication, paired with Vite for efficient asset management. 
+For interactivity, Alpine.js provides lightweight JavaScript components. The Commentify package implements a robust comment system, 
+while Tailwind CSS offers utility-first styling. The Trix editor serves as a rich text editor for embedding HTML content, and Livewire enables dynamic, 
+reactive components without leaving the comfort of Laravel.
