@@ -38,6 +38,24 @@
                         <input type="text" name="location" placeholder="Conference location" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
                     </div>
                 </div>
+                <div>
+                    <label for="location" class="block mb-2 text-sm font-medium text-gray-900">Objective</label>
+                    <input type="text" name="objective" placeholder="Conference objective" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                </div>
+                <div>
+                    <label for="status" class="block mb-2 text-sm font-medium text-gray-900">Status</label>
+                    <input type="text" name="status" placeholder="Status" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                </div>
+                <div>
+                    <label class="block mb-2 text-sm font-medium text-gray-900">Speakers</label>
+                    <select name="speaker_id"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                        <option value="">Choose speaker</option>
+                        @foreach($speakers as $speaker)
+                            <option value="{{ $speaker->id }}">{{ $speaker->name }}</option>
+                        @endforeach
+                    </select>
+                </div>
                 <br/>
                 <button type="submit" class="py-2.5 px-6 text-sm rounded-lg bg-gradient-to-r from-orange-500 to-orange-300 text-white font-semibold shadow-xs transition duration-500 hover:bg-gradient-to-l">
                     Add New Conference
