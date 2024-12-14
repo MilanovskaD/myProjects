@@ -54,3 +54,12 @@ This repository contains a variety of projects showcasing my full-stack developm
   - Cron job that automatically generates random match results
   - CRUD operations for football teams, matches, and player management
   - Organized and accessible data structure
+ 
+### PHP Registration Project
+**Description**: A project that allows users to register and manage vehicle information through a simple PHP-based interface.
+
+- **Technologies**: PHP, MySQL, HTML, CSS
+- **Features**:
+ - User registration and login
+ - Vehicle information management
+ - Basic CRUD functionality
