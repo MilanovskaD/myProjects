@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="transition-colors duration-500">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -35,12 +35,9 @@
     {{--jquery--}}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
-    {{--    Particles js--}}
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
 
 </head>
-<body style="background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));"
-      class="bg-cover bg-center min-h-screen relative overflow-hidden">
+<body class="min-h-screen bg-gradient-to-b from-gray-950 via-gray-900/80 to-gray-800 overflow-hidden">
 
 
 {{-- Header --}}
@@ -64,11 +61,5 @@
     </main>
 </div>
 
-{{-- Footer --}}
-<footer class="">
-    <div class="">
-        @include('layouts.footer')
-    </div>
-</footer>
 </body>
 </html>

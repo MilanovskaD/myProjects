@@ -8,6 +8,7 @@ import './settings.js';
 
 // App entry point
 window.addEventListener('DOMContentLoaded', async () => {
+
     const savedCity = localStorage.getItem('selectedCity');
     const savedCoords = JSON.parse(localStorage.getItem('selectedCoords'));
 

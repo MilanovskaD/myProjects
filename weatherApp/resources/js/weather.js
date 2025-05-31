@@ -23,6 +23,15 @@ async function getTimezoneForCoordinates(lat, lon) {
     }
 }
 
+function toggleNightTheme(isNight) {
+    const html = document.documentElement;
+    if (isNight) {
+        html.classList.add('dark');
+    } else {
+        html.classList.remove('dark');
+    }
+}
+
 function updateWeatherUI(weatherData) {
     if (!weatherData.list || weatherData.list.length === 0) {
         throw new Error('No weather data available');
@@ -36,6 +45,7 @@ function updateWeatherUI(weatherData) {
     const timezoneOffset = weatherData.city.timezone;
 
     const isNight = isNightTimeByOffset(timezoneOffset);
+    toggleNightTheme(isNight);
 
     document.getElementById('temperature').textContent =
         `${convertTemp(currentTemp)}°${isFahrenheit() ? 'F' : 'C'}`;
@@ -107,7 +117,7 @@ function renderWeatherCards(forecasts) {
     container.innerHTML = '';
     forecasts.forEach(day => {
         container.innerHTML += `
-            <div class="min-w-[150px] bg-white/10 rounded-lg p-4 text-center backdrop-blur-sm hover:bg-white/20 transition-all">
+            <div class="min-w-[150px] bg-white/10 dark:bg-white/20 rounded-lg p-4 text-center backdrop-blur-sm hover:bg-white/20 dark:hover:bg-white/30 transition-colors duration-500">
                 <div class="text-lg font-semibold">${day.day}</div>
                 <img src="/svg/wi-${getWeatherIcon(day.icon)}.svg" alt="${day.condition}" class="w-12 h-12 mx-auto my-2" />
                 <div class="text-xl font-bold">${convertTemp(day.temp)}°${isFahrenheit() ? 'F' : 'C'}</div>

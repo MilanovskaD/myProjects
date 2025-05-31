@@ -1,16 +1,16 @@
+const settingsLocationID = document.getElementById('locationSettings');
+const settingsTimeID = document.getElementById('currentTimeSettings');
+
+if (settingsLocationID && settingsTimeID) {
+    settingsLocationID.innerHTML = '//';
+    settingsTimeID.innerHTML = '//';
+}
+
 window.useLocalTime = true;
 window.currentOffset = 0;
 
 function updateTime(offsetInSeconds = 0) {
     const now = new Date();
-    const settingsLocationID = document.getElementById('locationSettings');
-    const settingsTimeID = document.getElementById('currentTimeSettings');
-
-    if (settingsLocationID && settingsTimeID) {
-        settingsLocationID.innerHTML = '//';
-        settingsTimeID.innerHTML = '//';
-        return;
-    }
 
     if (!window.useLocalTime) {
         const options = {
@@ -58,10 +58,10 @@ function isNightTimeByOffset(timezoneOffsetInSeconds) {
         const nowUTC = new Date();
         const localTime = new Date(nowUTC.getTime() + timezoneOffsetInSeconds * 1000);
         const hour = localTime.getUTCHours();
-        return hour >= 18 || hour < 6;
+        return hour >= 20 || hour < 5;
     } catch (e) {
         const hour = new Date().getHours();
-        return hour >= 18 || hour < 6;
+        return hour >= 20 || hour < 5;
     }
 }
 
@@ -71,7 +71,6 @@ function getCurrentDay() {
     return days[now.getDay()];
 }
 
-// Registering to window
 window.updateTime = updateTime;
 window.setTimeLabel = setTimeLabel;
 window.isNightTimeByOffset = isNightTimeByOffset;

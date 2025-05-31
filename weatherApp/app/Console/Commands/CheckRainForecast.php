@@ -8,6 +8,7 @@ use App\Models\Subscription;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\Facades\Http as HttpClient;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Sleep;
 
 class CheckRainForecast extends Command
 {
@@ -26,7 +27,7 @@ class CheckRainForecast extends Command
     protected $description = 'app:check-rain-forecast';
     protected function schedule(Schedule $schedule): void
     {
-        $schedule->command('app:check-rain-forecast')->hourly();
+        $schedule->command('app:check-rain-forecast')->hourly()->withoutOverlapping();
     }
 
     /**
@@ -43,19 +44,28 @@ class CheckRainForecast extends Command
                 'units' => 'metric'
             ]);
 
-            if ($response->failed()) continue;
+            if ($response->failed()) {
+                continue;
+            }
 
             $data = $response->json();
 
-            // Look for rain in upcoming 9 hours
-            $rainComing = collect($data['list'])->take(3)->contains(fn ($item) =>
+            $clearWeatherFound = collect($data['list'])->take(3)->contains(fn ($item) =>
             str_contains(strtolower($item['weather'][0]['main']), 'rain')
             );
 
-            if ($rainComing) {
-                Mail::to($sub->email)->send(new \App\Mail\RainAlertMail($sub->city));
+
+            if ($clearWeatherFound && (
+                    !$sub->last_notified_at ||
+                    !$sub->last_notified_at->isToday()
+                )) {
+                Mail::to($sub->email)->send(new \App\Mail\RainAlertMail($sub->email, $sub->city));
+                $sub->update(['last_notified_at' => now()]);
+                Sleep::for(5)->seconds();
             }
+
         }
+
         $this->info("✔ Rain forecast check complete.");
 
     }

@@ -17,16 +17,17 @@
     <div class="text-center mt-10 relative">
         <!-- Current weather -->
         <div class="flex flex-col items-center gap-2 mb-8">
-            <button id="useMyLocation" class="bg-transparent px-4 py-2 rounded border border-black">
-                Use My Location
-            </button>
-            <div id="current-day" class="text-lg font-semibold"></div>
+
+            <div id="current-day" class="text-lg font-semibold dark:text-white"></div>
             <div class="flex items-center justify-center">
-                <div id="temperature" class="text-4xl font-bold"></div>
+                <div id="temperature" class="text-4xl font-bold dark:text-white"></div>
 {{--                <img src="/svg/wi-celsius.svg" alt="°C" class="w-10 h-10">--}}
             </div>
-            <img id="current-weather-icon" src="" alt="icon" class="w-16 h-16">
-            <div id="location" class="text-xl"></div>
+            <img id="current-weather-icon"
+                 src=""
+                 alt="icon"
+                 class="w-16 h-16 p-2 rounded-xl bg-white/50 dark:bg-white/10 backdrop-blur-md transition-all duration-500">
+            <div id="location" class="text-xl dark:text-white"></div>
         </div>
 
         <!-- Weather cards -->
@@ -53,7 +54,16 @@
             </div>
         </div>
     </div>
-
+    <button id="useMyLocation"
+            class="fixed bottom-6 right-6 z-50
+               bg-white/30 dark:bg-white/10
+               text-black dark:text-white
+               border border-white/40
+               px-4 py-2 rounded-xl
+               backdrop-blur-md
+               hover:bg-white/40
+               transition-all duration-300 shadow-lg">
+        📍 Use My Location
+    </button>
 @endsection
 
-{{--https://api.openweathermap.org/data/2.5/forecast?lat=41.34&lon=10.99&appid=232769df58efc9ad7a0df0af2f074825   full open weather api --}}
