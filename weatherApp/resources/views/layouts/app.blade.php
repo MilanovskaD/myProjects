@@ -12,7 +12,7 @@
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
 
     {{--   Scripts --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/map.js'])
+    @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/map.js' ])
 
     {{--   Font awesome--}}
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
@@ -52,7 +52,8 @@
 <div class="flex flex-1 h-screen">
     {{-- Sidebar --}}
     <aside
-        class="w-20 h-100 overflow-hidden bg-gradient-to-b from-sky-400 to-gray-300  text-white p-4 ms-3 my-3 rounded-2xl transform transition-transform duration-300 ease-in-out -translate-x-full"
+        class="w-20 max-h-[calc(100vh-7rem)] overflow-y-auto bg-white/10 backdrop-blur-md border border-white/20 shadow-lg text-white p-4 ms-3 my-6
+        rounded-2xl transform transition-transform duration-300 ease-in-out -translate-x-full"
         id="sidePanel">
         @include('layouts.sidebar')
     </aside>

@@ -16,6 +16,8 @@
         </div>
         <div class="w-full md:w-1/4 bg-white/10 rounded-lg p-2.5 text-center backdrop-blur-sm">
             <span id="@yield('currentTimeId', 'currentTime')">Loading...</span>
+            <small id="timeLabel" class="">...</small>
+
         </div>
     </div>
 </div>

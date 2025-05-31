@@ -45,12 +45,14 @@ map.on('click', async (e) => {
         const description = current.weather[0].description;
         const temp = Math.round(current.main.temp);
         const city = data.city.name;
+        const convertedTemp = isFahrenheit() ? Math.round(temp * 9 / 5 + 32) : temp;
+        const unit = isFahrenheit() ? 'F' : 'C';
 
         popup.setContent(`
-            <strong>${city}</strong><br>
-            ${description}<br>
-            ${temp}°C
-        `);
+    <strong>${city}</strong><br>
+    ${description}<br>
+    ${convertedTemp}°${unit}
+`);
 
         // Update UI
         document.getElementById('locationMapBlade').textContent = city;
