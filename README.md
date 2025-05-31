@@ -24,6 +24,18 @@ This repository contains a variety of projects showcasing my full-stack developm
   - Filtering options for browsing books
   - Comments and note-taking for users
   - Interactive UI for improved user experience
+ 
+ ### 3. Weather Forecast App 🌤️
+**Description**: A modern, responsive web-based weather forecast platform designed with a glassmorphism aesthetic. It allows users to search for cities, view live weather conditions, get rain alert emails, browse interactive map with real-time and real weather, experience real-time UI updates.
+
+- **Technologies**: Laravel, JavaScript (Vanilla), Tailwind CSS, OpenWeather API, Leaflet.js, Cron Jobs, Mailtrap
+- **Features**:
+  - Real-time weather with 5-day forecasts
+  - Glassmorphism UI with auto dark/light theme switch
+  - Weather based videos and icons with day/night conversion
+  - Map-based forecast using Leaflet.js with weather/time on click
+  - Rain alert email subscription via Laravel mail system
+  - 12h/24h toggle and °C/°F conversion
 
 ---
 
@@ -54,3 +66,5 @@ This repository contains a variety of projects showcasing my full-stack developm
   - Cron job that automatically generates random match results
   - CRUD operations for football teams, matches, and player management
   - Organized and accessible data structure
+ 
+    
