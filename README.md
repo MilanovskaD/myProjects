@@ -36,6 +36,17 @@ This repository contains a variety of projects showcasing my full-stack developm
   - Map-based forecast using Leaflet.js with weather/time on click
   - Rain alert email subscription via Laravel mail system
   - 12h/24h toggle and °C/°F conversion
+ 
+
+### 4. Gymratai 🏋️‍♂️  
+**Description**: An AI-powered fitness assistant that generates personalized gym routines based on user goals (e.g. fat loss, strength, toning). Built with a clean and responsive UI. Integrates real-time AI chat responses for instant workout suggestions.
+
+- **Technologies**: React, Tailwind CSS, JavaScript, ExpressJs, React Markdown, DeepSeek Chat API (via OpenRouter), Vite
+- **Features**:
+  - Instant AI-generated gym workouts tailored to user goals
+  - Responsive design
+  - Markdown-based formatting for readable AI responses
+
 
 ---
 
