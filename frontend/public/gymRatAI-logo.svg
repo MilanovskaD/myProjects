@@ -1,0 +1,25 @@
+<svg width="300" height="200" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Modern gradient background -->
+  <rect width="300" height="200" rx="10" fill="url(#gradient)"/>
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3a3a3a"/>
+      <stop offset="100%" stop-color="#1a1a1a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Dumbbell icon (modern flat design) -->
+  <rect x="80" y="80" width="140" height="12" rx="6" fill="#FF5E5B"/>
+  <circle cx="70" cy="86" r="16" fill="#FF5E5B" stroke="#fff" stroke-width="3"/>
+  <circle cx="230" cy="86" r="16" fill="#FF5E5B" stroke="#fff" stroke-width="3"/>
+
+  <!-- Main text: GymRatAI -->
+  <text x="150" y="50" font-family="Arial Black, sans-serif" font-size="28" fill="#fff" text-anchor="middle" letter-spacing="1">
+    GYMRAT<b fill="#FF5E5B">AI</b>
+  </text>
+
+  <!-- Slogan: "AI plans, You lift" -->
+  <text x="150" y="150" font-family="Arial, sans-serif" font-size="16" fill="#ddd" text-anchor="middle" font-style="italic">
+    AI plans, <tspan fill="#FF5E5B" font-weight="bold">You lift</tspan>
+  </text>
+</svg>
